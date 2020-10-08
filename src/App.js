@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Cards, Chart, CountryPicker } from "./components";
-import style from "./App.module.css";
-import { fetchData } from "./api";
+import React, { Component } from 'react';
+import { Cards, Chart, CountryPicker } from './components';
+import style from './App.module.css';
+import { fetchData } from './api';
 class App extends Component {
   state = {
     data: {},
-    country: "",
+    country: '',
   };
   async componentDidMount() {
     const fetchedData = await fetchData();
@@ -23,6 +23,9 @@ class App extends Component {
         <Cards data={data} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart data={data} country={country} />
+        <footer className="footer">
+          <p>@ Salahuddin kader</p>
+        </footer>
       </div>
     );
   }

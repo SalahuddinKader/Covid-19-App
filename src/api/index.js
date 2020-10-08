@@ -1,5 +1,5 @@
-import axios from "axios";
-const url = "https://covid19.mathdro.id/api";
+import axios from 'axios';
+const url = 'https://covid19.mathdro.id/api';
 
 export const fetchData = async (country) => {
   let changeAbleURL = url;
@@ -20,15 +20,13 @@ export const fetchData = async (country) => {
 export const fetchDailyData = async () => {
   try {
     const { data } = await axios.get(`${url}/daily`);
-
-    const modifyData = data.map((dailydata) => ({
-      confirmed: dailydata.confirmed.total,
-      deaths: dailydata.deaths.total,
-      date: dailydata.reportData,
+    return data.map(({ confirmed, deaths, reportDate: date }) => ({
+      confirmed: confirmed.total,
+      deaths: deaths.total,
+      date,
     }));
-    return modifyData;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    return error;
   }
 };
 

@@ -1,6 +1,11 @@
 .container {
   margin: 50px 0;
 }
+.name {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 26px;
+}
 .card {
   margin: 0 2% !important;
 }
@@ -13,4 +18,10 @@
 }
 .deaths {
   border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}
+
+@media (max-width: 770px) {
+  .card {
+    margin-top: 10px !important;
+  }
 }
